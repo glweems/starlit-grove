@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
+/* Light theme (default) — late-summer greens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #F5ECD5;       /* cream */
+  --fg: #0f2a1f;       /* evergreen */
+  --muted: #A4B465;    /* sage (subtle text, dividers) */
+  --accent: #F0BB78;   /* wheat (CTA/buttons) */
+  --panel: #A4B465;    /* sage panels */
+  --panel-2: #626F47;  /* evergreen accents */
 }
 
+/* Tailwind v4 design tokens mapped to the CSS vars above */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Dark mode flips the scheme for contrast */
+
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--fg);
   font-family: Arial, Helvetica, sans-serif;
 }
