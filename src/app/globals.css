@@ -2,7 +2,7 @@
 
 /* Light theme (default) — late-summer greens */
 :root {
-  --bg: #F5ECD5;       /* cream */
+  --bg: #f4f1e8;       /* cream */
   --fg: #0f2a1f;       /* evergreen */
   --muted: #A4B465;    /* sage (subtle text, dividers) */
   --accent: #F0BB78;   /* wheat (CTA/buttons) */
