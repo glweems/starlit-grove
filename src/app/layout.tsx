@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
-// @ts-ignore
 import "./globals.css";
 
 import { content } from "@/lib/data";
