@@ -1,6 +1,4 @@
-import type { PropertyContent } from "./types";
-
-export const content: PropertyContent = {
+export const content = {
   site: {
     name: "Starlit Grove",
     domain: "starlitgrove.com",
@@ -19,7 +17,11 @@ export const content: PropertyContent = {
       secondaryHref: "/events",
     },
     images: [
-      { src: "/images/hero-house.jpg", alt: "Front porch overlooking the pond", priority: true },
+      {
+        src: "/images/hero-house.jpg",
+        alt: "Front porch overlooking the pond",
+        priority: true,
+      },
       { src: "/images/hero-pond.jpg", alt: "Private pond at sunset" },
     ],
   },
@@ -66,15 +68,28 @@ export const content: PropertyContent = {
     { src: "/images/event-lawn.jpg", alt: "Event lawn with tent setup" },
   ],
   rates: [
-    { label: "Celebration Package", amountCents: 50000, notes: "Up to 6-hour outdoor event" },
-    { label: "Weekend Retreat Package", amountCents: 125000, notes: "2 nights lodging + 1 event day" },
-    { label: "Starlit Wedding Package", amountCents: 250000, notes: "Full-day event + 2 nights lodging" },
+    {
+      label: "Celebration Package",
+      amountCents: 50000,
+      notes: "Up to 6-hour outdoor event",
+    },
+    {
+      label: "Weekend Retreat Package",
+      amountCents: 125000,
+      notes: "2 nights lodging + 1 event day",
+    },
+    {
+      label: "Starlit Wedding Package",
+      amountCents: 250000,
+      notes: "Full-day event + 2 nights lodging",
+    },
   ],
   booking: {
     minNights: 2,
     checkIn: "After 3 PM",
     checkOut: "Before 11 AM",
-    cancellation: "Full refund if canceled 7 days before check-in. 50% refund up to 2 days before.",
+    cancellation:
+      "Full refund if canceled 7 days before check-in. 50% refund up to 2 days before.",
     depositRequired: true,
   },
   policies: [
@@ -124,7 +139,8 @@ export const content: PropertyContent = {
     },
   ],
   seo: {
-    title: "Starlit Grove | Pond • Game Room • 20 Acres • Sleeps 12 • Events Welcome",
+    title:
+      "Starlit Grove | Pond • Game Room • 20 Acres • Sleeps 12 • Events Welcome",
     description:
       "Escape to Starlit Grove in Anna, TX — a 3-bedroom, 3-bath home on 20 acres with pond, game room, and event space. Perfect for getaways, weddings, and retreats.",
     ogImage: "/images/og-cover.jpg",

@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Cormorant_Garamond,
-  Playfair_Display,
-  Inter,
-} from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 // @ts-ignore
 import "./globals.css";
 
