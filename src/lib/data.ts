@@ -2,8 +2,10 @@ export const content = {
   site: {
     name: "Starlit Grove",
     domain: "starlitgrove.com",
+    description:
+      "Your private countryside escape in Anna, Texas — 20 acres of open sky, a peaceful pond, and room for unforgettable gatherings under the stars.",
     contactEmail: "stay@starlitgrove.com",
-    phone: "(555) 555-0123",
+    phone: 2147187017,
   },
   hero: {
     kicker: "Pond • Game Room • 20 Acres • Sleeps 12 • Events Welcome",
