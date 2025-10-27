@@ -1,3 +1,66 @@
+export const roomData = {
+  masterBedroom: {
+    name: "Master Bedroom",
+    images: [
+      "/images/master-bedroom/bedroom-1.jpg",
+      "/images/master-bedroom/bedroom-2.jpg",
+      "/images/master-bedroom/bedroom-3.jpg",
+      "/images/master-bedroom/bedroom-4.jpg",
+      "/images/master-bedroom/bedroom-5.jpg",
+      "/images/master-bedroom/bedroom-6.jpg",
+      "/images/master-bedroom/bedroom-7.jpg",
+      "/images/master-bedroom/bedroom-8.jpg",
+      "/images/master-bedroom/bedroom-9.jpg",
+    ],
+  },
+  bedroom: {
+    name: "Bedroom",
+    images: [
+      "/images/bedroom/bedroom-1.jpg",
+      "/images/bedroom/bedroom-2.jpg",
+      "/images/bedroom/bedroom-3.jpg",
+      "/images/bedroom/bedroom-4.jpg",
+      "/images/bedroom/bedroom-5.jpg",
+    ],
+  },
+  bunkRoom: {
+    name: "Bunk Room",
+    images: [
+      "/images/bunk-room/bunk-room-1.jpg",
+      "/images/bunk-room/bunk-room-2.jpg",
+      "/images/bunk-room/bunk-room-3.jpg",
+      "/images/bunk-room/bunk-room-4.jpg",
+    ],
+  },
+  entryWay: {
+    name: "Entry Way",
+    images: ["/images/entry-way/entry-way.jpg"],
+  },
+  gameRoom: {
+    name: "Game Room",
+    images: [
+      "/images/game-room/game-room-1.jpg",
+      "/images/game-room/game-room-2.jpg",
+      "/images/game-room/game-room-3.jpg",
+      "/images/game-room/game-room-4.jpg",
+      "/images/game-room/game-room-5.jpg",
+      "/images/game-room/game-room-6.jpg",
+    ],
+  },
+  kitchen: {
+    name: "Kitchen",
+    images: [
+      "/images/kitchen/kitchen-1.jpg",
+      "/images/kitchen/kitchen-2.jpg",
+      "/images/kitchen/kitchen-3.jpg",
+      "/images/kitchen/kitchen-4.jpg",
+      "/images/kitchen/kitchen-5.jpg",
+      "/images/kitchen/kitchen-6.jpg",
+      "/images/kitchen/kitchen-7.jpg",
+    ],
+  },
+};
+
 export const content = {
   site: {
     name: "Starlit Grove",
