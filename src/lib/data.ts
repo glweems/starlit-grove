@@ -148,3 +148,52 @@ export const content = {
     ogImage: "/images/og-cover.jpg",
   },
 };
+export const galleryImages = [
+  { src: "/images/house.png", alt: "Front view of Starlit Grove" },
+  { src: "/images/livingroom.png", alt: "Living room with pond views" },
+  { src: "/images/kitchen.png", alt: "Kitchen with island and dining area" },
+  { src: "/images/gameroom.png", alt: "Game room with foosball" },
+  { src: "/images/master_bath.png", alt: "Primary bathroom" },
+  { src: "/images/property.png", alt: "Acreage and pond" },
+  { src: "/images/house2.png", alt: "Side view and yard" },
+  { src: "/images/house3.png", alt: "Back deck and lawn" },
+  { src: "/images/kitchen2.png", alt: "Fully stocked kitchen" },
+  { src: "/images/livingroom2.png", alt: "Open living area and seating" },
+];
+
+/* ---------- EVENT PACKAGE TEASERS ---------- */
+export const PACKAGES = [
+  {
+    id: "celebration",
+    name: "Celebration",
+    price: "From $500–$750",
+    bullets: [
+      "Outdoor event area up to 6 hours",
+      "Restroom + prep access",
+      "Tables & chairs (qty TBD)",
+      "On-site parking",
+    ],
+  },
+  {
+    id: "weekend-retreat",
+    name: "Weekend Retreat",
+    price: "From $1,250–$1,800",
+    bullets: [
+      "2 nights lodging (sleeps 12)",
+      "Full access to 20 acres + pond",
+      "Event area up to 8 hours",
+      "Game room + firepit",
+    ],
+  },
+  {
+    id: "starlit-wedding",
+    name: "Starlit Wedding",
+    price: "From $2,500–$3,500",
+    bullets: [
+      "Full-day lawn + pond area",
+      "2 nights lodging for 12",
+      "Kitchen/prep spaces",
+      "Early setup & next-day breakdown",
+    ],
+  },
+];

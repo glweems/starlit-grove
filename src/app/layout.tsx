@@ -40,7 +40,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {children} {/* FOOTER */}
+        <footer className="border-t border-[color:var(--fg)/0.12] bg-[color:var(--panel)/0.08]">
+          <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-[color:var(--fg)/0.75]">
+            Anna, Texas · Direct inquiries only · stay@starlitgrove.com
+          </div>
+        </footer>
       </body>
     </html>
   );
