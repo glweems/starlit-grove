@@ -1,48 +1,92 @@
 "use client";
-import { useMemo } from "react";
 
-export type RoomData = Record<string, { name: string; images: string[] }>;
+import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "@/components/Lightbox";
+import { roomData } from "@/lib/data";
 
-export default function ListingGallery({ data }: { data: RoomData }) {
-  const groups = useMemo(
-    () => Object.entries(data).map(([key, v]) => ({ key, ...v })),
-    [data]
+interface Photo {
+  src: string;
+  alt: string;
+}
+
+interface HeroGalleryProps {
+  photos: typeof roomData;
+}
+
+export default function HeroGallery({ photos }: HeroGalleryProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Flatten roomData into an array of all image objects
+  const allImages: Photo[] = Object.values(photos).flatMap((room) =>
+    room.images.map((img) => ({ src: img.src, alt: img.alt }))
   );
 
-  return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 space-y-10">
-      {groups.map((group) => (
-        <section key={group.key}>
-          <h3 className="text-xl font-semibold mb-1">{group.name}</h3>
-          <p className="text-sm text-neutral-500 mb-4">
-            {group.key === "bedroom"
-              ? "King bed"
-              : group.key === "bunkRoom"
-              ? "Bunk beds"
-              : group.key === "livingRoom"
-              ? "Sofa bed"
-              : ""}
-          </p>
+  // Use the first image from each room for the hero collage
+  const heroImages = Object.values(photos)
+    .map((room) => room.images[0])
+    .slice(0, 5);
 
-          <div className="grid grid-cols-[repeat(2,1fr)] auto-cols-2sm:grid-cols-2  gap-4">
-            {group.images.map((src, i) => (
-              <div
-                key={src + i}
-                className={`overflow-hidden rounded-xl col-span-${
-                  i === 0 ? "2" : i === 3 ? "2" : i % 2 === 0 ? "1" : "1"
-                }`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt={`${group.name} ${i + 1}`}
-                  className="w-full h-auto object-cover"
-                />
+  return (
+    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6">
+      {/* Airbnb-style 5-image grid */}
+      <div className="grid grid-cols-3 grid-rows-2 gap-2 sm:gap-3 rounded-2xl overflow-hidden aspect-[16/7]">
+        {heroImages.map((img, idx) => (
+          <button
+            key={img.src}
+            className={`relative overflow-hidden ${
+              idx === 0 ? "col-span-2 row-span-2" : ""
+            }`}
+            onClick={() => {
+              setActiveIndex(idx);
+              setLightboxOpen(true);
+            }}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 68vw"
+              className="object-cover hover:scale-[1.02] transition-transform duration-500"
+              quality={70}
+            />
+            {/* Overlay button on last tile */}
+            {idx === 4 && (
+              <div className="absolute bottom-3 right-3 flex items-center gap-2 rounded-xl bg-white/95 px-3.5 py-2 text-sm font-medium text-black shadow-md">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                >
+                  <circle cx="6" cy="6" r="1.6" />
+                  <circle cx="12" cy="6" r="1.6" />
+                  <circle cx="18" cy="6" r="1.6" />
+                  <circle cx="6" cy="12" r="1.6" />
+                  <circle cx="12" cy="12" r="1.6" />
+                  <circle cx="18" cy="12" r="1.6" />
+                  <circle cx="6" cy="18" r="1.6" />
+                  <circle cx="12" cy="18" r="1.6" />
+                  <circle cx="18" cy="18" r="1.6" />
+                </svg>
+                Show all photos
               </div>
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <Lightbox
+          photos={allImages}
+          startIndex={activeIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
+    </section>
   );
 }

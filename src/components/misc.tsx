@@ -1,38 +1,46 @@
+import { bookingScript } from "@/lib/data";
 import React from "react";
 
-export const HostfullyBookingWidget = () => {
+export const BookingWidget = () => {
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `<script type="text/javascript" src="https://platform.hostfully.com/assets/js/pikaday.js"></script>
-
-<script type="text/javascript" src="https://platform.hostfully.com/assets/js/leadCaptureWidget_2.0.js"></script>
-
-<div id="leadWidget"></div>
-
-<script>
-var widget = new Widget('leadWidget', '1510fa08-fbe0-4f2c-abc6-c5225900b486', {"maximun_availability":"2028-10-13T14:22:06.943Z","type":"agency","fields":[],"showAvailability":true,"lang":"US","minStay":true,"price":true,"hidePriceWithoutDates":false,"cc":false,"emailClient":true,"saveCookie":true,"showDynamicMinStay":true,"backgroundColor":"#FFFFFF","buttonSubmit":{"backgroundColor":"#F8981B"},"showPriceDetailsLink":false,"showGetQuoteLink":false,"labelColor":"#F8981B","showTotalWithoutSD":true,"redirectURL":false,"showDiscount":true,"includeReferrerToRequest":true,"customDomainName":null,"source":null,"aid":"ORB-49587220416635719","clickID":null,"valuesByDefaults":{"checkIn":{"value":""},"checkOut":{"value":""},"guests":{"value":""},"discountCode":{"value":""}},"pathRoot":"https://platform.hostfully.com/"});
-</script>`,
-      }}
-    />
+    <div className="mx-auto max-w-6xl px-4 py-20 my-2">
+      <h1 className="text-3xl font-semibold text-[color:var(--fg)] sm:text-4xl">
+        Book Your Stay
+      </h1>
+      <div
+        className="contaner bg-white rounded-md"
+        dangerouslySetInnerHTML={{ __html: bookingScript }}
+      />
+    </div>
   );
 };
 
-export const CalWidget = () => (
-  <div
-    className="w-full"
-    dangerouslySetInnerHTML={{
-      __html: `<script src='https://platform.hostfully.com/assets/js/orbirental_calendar_widget_v2.js'></script>
+export function extractAllImagePaths(roomData: Record<string, any>): string[] {
+  const paths: string[] = [];
 
-<div id="widget204135"></div>
+  for (const key in roomData) {
+    const room = roomData[key];
+    if (!room || typeof room !== "object") continue;
 
-<script>new orbiwidget('widget204135', {
-id: 204135,
-showTentative: 0,
-monthsToDisplay: 2,
-name: "Starlit Grove"
-});
-</script>`,
-    }}
-  />
-);
+    // if this key has an images array, collect them
+    if (Array.isArray(room.images)) {
+      for (const img of room.images) {
+        if (typeof img === "string") {
+          paths.push(img);
+        } else if (img && typeof img.src === "string") {
+          paths.push(img.src);
+        }
+      }
+    }
+
+    // in case of nested objects (not really needed here but future-proof)
+    for (const subKey in room) {
+      const value = room[subKey];
+      if (value && typeof value === "object" && !Array.isArray(value)) {
+        paths.push(...extractAllImagePaths(value));
+      }
+    }
+  }
+
+  return paths;
+}

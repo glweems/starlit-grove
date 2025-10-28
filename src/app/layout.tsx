@@ -4,6 +4,7 @@ import { DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 
 import { content } from "@/lib/data";
+import Link from "next/dist/client/link";
 const geistSans = DM_Serif_Display({
   variable: "--font-heading",
   weight: "400",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     title: "Starlit Grove — Events & Lodging",
     description:
       "Private countryside escape north of Dallas. Pond, game room, event-friendly. Sleeps 12.",
-    url: "https://starlit-grove.vercel.app/",
+    url: content.site.domain,
     siteName: "Starlit Grove",
     images: [{ url: "/images/og-image.png", width: 1600, height: 900 }],
     locale: "en_US",
@@ -42,48 +43,39 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* NAV: glass bar */}
-        <header className="fixed left-0 right-0 top-0 z-40">
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-b-2xl border border-[color:var(--fg)/0.15] bg-[color:var(--panel)/0.35] px-4 py-3 backdrop-blur-md">
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium tracking-wide text-[color:var(--bg)]/90">
+        <header className="w-full bg-[color:var(--bg)] text-[color:var(--fg)] shadow-sm font-serif">
+          <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+            {/* Logo or Title */}
+            <Link href="/" className="flex items-center gap-2">
+              <span className="text-xl font-semibold tracking-tight">
                 Starlit Grove
-              </span>{" "}
-            </div>
-            <nav className="hidden gap-2 sm:flex">
-              <a
-                href="#stay"
-                className="rounded-full px-3 py-1.5 text-sm text-[var(--bg)]/85 hover:bg-[color:var(--bg)/0.1]"
-              >
-                Stay
-              </a>
-              <a
-                href="#events"
-                className="rounded-full px-3 py-1.5 text-sm text-[var(--bg)]/85 hover:bg-[color:var(--bg)/0.1]"
+              </span>
+            </Link>
+
+            {/* Simple Nav */}
+            <nav className="flex items-center gap-3 text-md font-medium">
+              <Link
+                href="/packages"
+                className="hover:text-[color:var(--accent)] transition-colors"
               >
                 Events
-              </a>
-              <a
-                href="#gallery"
-                className="rounded-full px-3 py-1.5 text-sm text-[var(--bg)]/85 hover:bg-[color:var(--bg)/0.1]"
+              </Link>
+              <Link
+                href="/gallery"
+                className="hover:text-[color:var(--accent)] transition-colors"
               >
-                Photos
-              </a>
-              <a
-                href="#location"
-                className="rounded-full px-3 py-1.5 text-sm text-[var(--bg)]/85 hover:bg-[color:var(--bg)/0.1]"
+                Gallery
+              </Link>
+              <Link
+                href="/booking"
+                className="rounded-full bg-[color:var(--accent)] px-4 py-2 text-[color:var(--fg)] font-semibold hover:opacity-90 transition"
               >
-                Location
-              </a>
+                Book Now
+              </Link>
             </nav>
-            <a
-              href="mailto:stay@starlitgrove.com"
-              className="rounded-full bg-[var(--accent)] px-4 py-1.5 text-sm font-medium text-[var(--fg)] hover:opacity-95"
-            >
-              Contact
-            </a>
           </div>
         </header>
-        <main className="mt-10">{children}</main>
+        <main className="bg-white text-[var(--fg)] flex-grow">{children}</main>
 
         {/* FOOTER */}
         <footer className="border-t border-[color:var(--fg)/0.12] bg-[color:var(--panel)/0.08]">

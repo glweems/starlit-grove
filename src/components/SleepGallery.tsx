@@ -13,7 +13,7 @@ export default function SleepGallery({ data }: SleepGalleryProps) {
 
   return (
     <section className="mx-auto  px-4 sm:px-6 lg:px-8 py-8">
-      <h2 className="text-2xl font-semibold mb-4">Where you'll sleep</h2>
+      <h2 className="text-2xl font-semibold mb-4">Where you&apos;ll sleep</h2>
       <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {groups.map((room) => (
           <div
