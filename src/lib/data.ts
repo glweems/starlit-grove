@@ -1,10 +1,73 @@
+export const roomData = {
+  masterBedroom: {
+    name: "Master Bedroom",
+    images: [
+      "/images/master-bedroom/bedroom-1.jpg",
+      "/images/master-bedroom/bedroom-2.jpg",
+      "/images/master-bedroom/bedroom-3.jpg",
+      "/images/master-bedroom/bedroom-4.jpg",
+      "/images/master-bedroom/bedroom-5.jpg",
+      "/images/master-bedroom/bedroom-6.jpg",
+      "/images/master-bedroom/bedroom-7.jpg",
+      "/images/master-bedroom/bedroom-8.jpg",
+      "/images/master-bedroom/bedroom-9.jpg",
+    ],
+  },
+  bedroom: {
+    name: "Bedroom",
+    images: [
+      "/images/bedroom/bedroom-1.jpg",
+      "/images/bedroom/bedroom-2.jpg",
+      "/images/bedroom/bedroom-3.jpg",
+      "/images/bedroom/bedroom-4.jpg",
+      "/images/bedroom/bedroom-5.jpg",
+    ],
+  },
+  bunkRoom: {
+    name: "Bunk Room",
+    images: [
+      "/images/bunk-room/bunk-room-1.jpg",
+      "/images/bunk-room/bunk-room-2.jpg",
+      "/images/bunk-room/bunk-room-3.jpg",
+      "/images/bunk-room/bunk-room-4.jpg",
+    ],
+  },
+  entryWay: {
+    name: "Entry Way",
+    images: ["/images/entry-way/entry-way.jpg"],
+  },
+  gameRoom: {
+    name: "Game Room",
+    images: [
+      "/images/game-room/game-room-1.jpg",
+      "/images/game-room/game-room-2.jpg",
+      "/images/game-room/game-room-3.jpg",
+      "/images/game-room/game-room-4.jpg",
+      "/images/game-room/game-room-5.jpg",
+      "/images/game-room/game-room-6.jpg",
+    ],
+  },
+  kitchen: {
+    name: "Kitchen",
+    images: [
+      "/images/kitchen/kitchen-1.jpg",
+      "/images/kitchen/kitchen-2.jpg",
+      "/images/kitchen/kitchen-3.jpg",
+      "/images/kitchen/kitchen-4.jpg",
+      "/images/kitchen/kitchen-5.jpg",
+      "/images/kitchen/kitchen-6.jpg",
+      "/images/kitchen/kitchen-7.jpg",
+    ],
+  },
+};
+
 export const content = {
   site: {
     name: "Starlit Grove",
-    domain: "starlitgrove.com",
+    domain: "https://www.thestarlitgrovevenue.com/",
     description:
       "Your private countryside escape in Anna, Texas — 20 acres of open sky, a peaceful pond, and room for unforgettable gatherings under the stars.",
-    contactEmail: "stay@starlitgrove.com",
+    contactEmail: "christi@moonlightfallsstjo.com",
     phone: 2147187017,
   },
   hero: {
@@ -148,52 +211,64 @@ export const content = {
     ogImage: "/images/og-cover.jpg",
   },
 };
-export const galleryImages = [
-  { src: "/images/house.png", alt: "Front view of Starlit Grove" },
-  { src: "/images/livingroom.png", alt: "Living room with pond views" },
-  { src: "/images/kitchen.png", alt: "Kitchen with island and dining area" },
-  { src: "/images/gameroom.png", alt: "Game room with foosball" },
-  { src: "/images/master_bath.png", alt: "Primary bathroom" },
-  { src: "/images/property.png", alt: "Acreage and pond" },
-  { src: "/images/house2.png", alt: "Side view and yard" },
-  { src: "/images/house3.png", alt: "Back deck and lawn" },
-  { src: "/images/kitchen2.png", alt: "Fully stocked kitchen" },
-  { src: "/images/livingroom2.png", alt: "Open living area and seating" },
-];
 
-/* ---------- EVENT PACKAGE TEASERS ---------- */
-export const PACKAGES = [
-  {
-    id: "celebration",
-    name: "Celebration",
-    price: "From $500–$750",
-    bullets: [
-      "Outdoor event area up to 6 hours",
-      "Restroom + prep access",
-      "Tables & chairs (qty TBD)",
-      "On-site parking",
-    ],
+// Get current date and time
+const currentDate: Date = new Date();
+console.log(currentDate); // Outputs the full date and time
+
+// Get only today's date (without time)
+const today: Date = new Date();
+console.log(today); // Outputs today's date with time set to midnight
+
+// Format as MM/DD/YYYY (US format)
+const formattedDate: string = `${
+  currentDate.getMonth() + 1
+}-${currentDate.getDate()}-${currentDate.getFullYear()}`;
+
+const widgetData = {
+  maximun_availability: formattedDate,
+  type: "agency",
+  fields: ["phone", "notes"],
+  showAvailability: true,
+  lang: "US",
+  minStay: true,
+  price: true,
+  hidePriceWithoutDates: true,
+  cc: "garrett.txt@gmail.com",
+  emailClient: true,
+  saveCookie: true,
+  showDynamicMinStay: true,
+  backgroundColor: "#FFF",
+  buttonSubmit: { backgroundColor: "#f0bb78" },
+  showPriceDetailsLink: true,
+  showGetQuoteLink: false,
+  labelColor: "#000",
+  showTotalWithoutSD: true,
+  redirectURL: "https://www.thestarlitgrovevenue.com?booking=success",
+  showDiscount: true,
+  includeReferrerToRequest: true,
+  customDomainName: null,
+  source: null,
+  aid: "ORB-49587220416635719",
+  clickID: null,
+  valuesByDefaults: {
+    checkIn: { value: today.toDateString() },
+    checkOut: { value: "" },
+    guests: { value: "" },
+    discountCode: { value: "" },
   },
-  {
-    id: "weekend-retreat",
-    name: "Weekend Retreat",
-    price: "From $1,250–$1,800",
-    bullets: [
-      "2 nights lodging (sleeps 12)",
-      "Full access to 20 acres + pond",
-      "Event area up to 8 hours",
-      "Game room + firepit",
-    ],
-  },
-  {
-    id: "starlit-wedding",
-    name: "Starlit Wedding",
-    price: "From $2,500–$3,500",
-    bullets: [
-      "Full-day lawn + pond area",
-      "2 nights lodging for 12",
-      "Kitchen/prep spaces",
-      "Early setup & next-day breakdown",
-    ],
-  },
-];
+  pathRoot: "https://platform.hostfully.com/",
+};
+
+export const bookingScript = `<script type="text/javascript" src="https://platform.hostfully.com/assets/js/pikaday.js"></script>
+
+<script type="text/javascript" src="https://platform.hostfully.com/assets/js/leadCaptureWidget_2.0.js"></script>
+
+<div id="leadWidget"></div>
+
+<script>
+var widget = new Widget('leadWidget', '1510fa08-fbe0-4f2c-abc6-c5225900b486', ${JSON.stringify(
+  widgetData
+)});
+widget.init();
+</script>`;
