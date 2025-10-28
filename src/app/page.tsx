@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { roomData, content, bookingScript } from "@/lib/data";
-import SleepGallery from "@/components/SleepGallery";
+import { roomData, content } from "@/lib/data";
 import HeroGallery from "@/components/Gallery";
 import AboutSection from "@/components/AboutSection";
 import SleepsSection from "@/components/SleepsSection";
