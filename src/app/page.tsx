@@ -5,6 +5,7 @@ import Image from "next/image";
 import heroImg from "@/../public/images/starlit-hero.png";
 import { roomData } from "@/lib/data";
 import SleepGallery from "@/components/SleepGallery";
+import Link from "next/link";
 
 /* ---------- CONTENT ---------- */
 
@@ -160,10 +161,10 @@ export default function HomeOverhaul() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
             <a
-              href="#stay"
+              href="/booking"
               className="rounded-full bg-[var(--accent)] px-6 py-3 font-medium text-[var(--fg)] hover:opacity-95"
             >
-              Explore Stays
+              Book Your Stay
             </a>
             <a
               href="#events"

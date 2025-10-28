@@ -64,10 +64,10 @@ export const roomData = {
 export const content = {
   site: {
     name: "Starlit Grove",
-    domain: "starlitgrove.com",
+    domain: "https://www.thestarlitgrovevenue.com/",
     description:
       "Your private countryside escape in Anna, Texas — 20 acres of open sky, a peaceful pond, and room for unforgettable gatherings under the stars.",
-    contactEmail: "stay@starlitgrove.com",
+    contactEmail: "christi@moonlightfallsstjo.com",
     phone: 2147187017,
   },
   hero: {
@@ -211,3 +211,64 @@ export const content = {
     ogImage: "/images/og-cover.jpg",
   },
 };
+
+// Get current date and time
+const currentDate: Date = new Date();
+console.log(currentDate); // Outputs the full date and time
+
+// Get only today's date (without time)
+const today: Date = new Date();
+console.log(today); // Outputs today's date with time set to midnight
+
+// Format as MM/DD/YYYY (US format)
+const formattedDate: string = `${
+  currentDate.getMonth() + 1
+}-${currentDate.getDate()}-${currentDate.getFullYear()}`;
+
+const widgetData = {
+  maximun_availability: formattedDate,
+  type: "agency",
+  fields: ["phone", "notes"],
+  showAvailability: true,
+  lang: "US",
+  minStay: true,
+  price: true,
+  hidePriceWithoutDates: true,
+  cc: "garrett.txt@gmail.com",
+  emailClient: true,
+  saveCookie: true,
+  showDynamicMinStay: true,
+  backgroundColor: "#FFF",
+  buttonSubmit: { backgroundColor: "#f0bb78" },
+  showPriceDetailsLink: true,
+  showGetQuoteLink: false,
+  labelColor: "#000",
+  showTotalWithoutSD: true,
+  redirectURL: "https://www.thestarlitgrovevenue.com?booking=success",
+  showDiscount: true,
+  includeReferrerToRequest: true,
+  customDomainName: null,
+  source: null,
+  aid: "ORB-49587220416635719",
+  clickID: null,
+  valuesByDefaults: {
+    checkIn: { value: today.toDateString() },
+    checkOut: { value: "" },
+    guests: { value: "" },
+    discountCode: { value: "" },
+  },
+  pathRoot: "https://platform.hostfully.com/",
+};
+
+export const bookingScript = `<script type="text/javascript" src="https://platform.hostfully.com/assets/js/pikaday.js"></script>
+
+<script type="text/javascript" src="https://platform.hostfully.com/assets/js/leadCaptureWidget_2.0.js"></script>
+
+<div id="leadWidget"></div>
+
+<script>
+var widget = new Widget('leadWidget', '1510fa08-fbe0-4f2c-abc6-c5225900b486', ${JSON.stringify(
+  widgetData
+)});
+widget.init();
+</script>`;

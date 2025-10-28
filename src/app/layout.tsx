@@ -89,8 +89,11 @@ export default function RootLayout({
         <footer className="border-t border-[color:var(--fg)/0.12] bg-[color:var(--panel)/0.08]">
           <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-[color:var(--fg)/0.8]">
             Anna, Texas · Direct inquiries ·{" "}
-            <a className="underline" href="mailto:stay@starlitgrove.com">
-              stay@starlitgrove.com
+            <a
+              className="underline"
+              href={`mailto:${content.site.contactEmail}`}
+            >
+              {content.site.contactEmail}
             </a>
           </div>
         </footer>
