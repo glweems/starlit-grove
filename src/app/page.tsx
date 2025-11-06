@@ -7,14 +7,6 @@ import AboutSection from "@/components/AboutSection";
 import SleepsSection from "@/components/SleepsSection";
 import Link from "next/link";
 
-/* ---------- UTILS ---------- */
-
-const motionOK = () =>
-  typeof window !== "undefined" &&
-  (window.matchMedia?.("(prefers-reduced-motion: no-preference)").matches ??
-    true);
-
-/* ---------- PAGE ---------- */
 
 export default function HomeOverhaul() {
   const { hero, rates, features, location, site } = content;

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 

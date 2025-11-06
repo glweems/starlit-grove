@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Lightbox from "@/components/Lightbox";
 import { roomData } from "@/lib/data";
+import Lightbox from "@/components/Lightbox";
 
 interface Photo {
   src: string;
